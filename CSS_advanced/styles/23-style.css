@@ -496,7 +496,7 @@ ul.row {
 }
 
 /* Social link SVG children */
-.social-link svg {
+.social-link > svg {
   fill: var(--text-color);
 }
 h1 h2 h3 h4 h5 h6 {
