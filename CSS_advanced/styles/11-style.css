@@ -44,12 +44,6 @@ a {
   text-transform: var(--section-tagline-transform);
   font-weight: var(--font-weight-bold);
 }
-.section-header-align {
-  text-align: center;
-}
-.section-tagline {
-  text-align: var(--section-header-align);
-}
 
 :root {
   --color-primary: #d73953;
