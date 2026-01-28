@@ -174,8 +174,7 @@ textarea {
  */
 
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -185,8 +184,7 @@ input {
  */
 
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -349,6 +347,7 @@ template {
 [hidden] {
   display: none;
 }
+
 *,
 *::before,
 *::after {
@@ -356,20 +355,21 @@ template {
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 62.5%;
+	scroll-behavior: smooth;
+	font-size: 62.5%;
 }
 
 body {
-  color: var(--text-color);
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-medium);
+	color: var(--text-color);
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-medium);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-base);
+
 }
 
-a {
-  color: var(--text-color);
+a{
+	color: #161616;
   text-decoration: none;
 }
 
@@ -390,24 +390,18 @@ a:active {
   background-color: var(--color-light-grey);
 }
 
-.visually-hidden {
-  display: none;
-}
-
-.card-category {
-  color: var(--color-primary);
-}
-
-.navbar-menu {
+.navbar-menu{
   float: right;
 }
-.nav {
+
+.nav{
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: center;
 }
-.nav .nav-item {
+
+.nav .nav-item{
   font-family: var(--nav-item-font-family);
   font-weight: var(--nav-item-font-weight);
   font-size: var(--nav-item-font-size);
@@ -415,33 +409,44 @@ a:active {
   display: var(--nav-item-display);
   margin: var(--nav-item-margin);
 }
-.nav .nav-link {
+
+.nav .nav-link{
   display: block;
   padding: 0.5rem 1rem;
 }
+
 .nav .nav-link:hover {
   color: var(--nav-item-link-hover);
 }
 
-.section {
-  padding: var(--section-padding);
+.visually-hidden{
+	display: none;
 }
-.section-header {
-  text-align: var(--section-header-align);
+
+.card-category{
+	color: var(--color-primary);
+}
+
+.section{
+  padding: var(--section-padding);
+
+}
+
+.section-header{
   padding: var(--section-header-padding);
 }
 
-.section-body {
+.section-body{
   padding: var(--section-body-padding);
 }
-.section-footer {
-  padding: var(--section-footer-padding);
+
+.section-footer{
   text-align: var(--section-footer-align);
+  padding: var(--section-footer-padding);
+
 }
-.footer {
-  padding: var(--footer-padding);
-}
-.section-title {
+
+.section-title{
   font-family: var(--font-family-title);
   font-size: var(--font-size-xx-large);
   font-weight: var(--font-weight-bold);
@@ -449,30 +454,30 @@ a:active {
   color: var(--section-title-color);
 }
 
-.section-tagline {
-  color: var(--color-primary);
+.section-tagline{
+	color: var(--color-primary);
   font-family: var(--font-family-title);
   text-transform: var(--section-tagline-transform);
   font-weight: var(--font-weight-bold);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-family-title);
-  font-weight: var(--font-weight-bold);
-}
-.container {
+.container { 
   width: 960px;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
+}
+
+h1 h2 h3 h4 h5 h6{
+	font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+}
+
+.footer{
+  padding: var(--footer-padding);
 }
 
 :root {
-  --color-primary: #d73953;
+  --color-primary: #D73953;
   --color-black: #090909;
   --color-white: #ffffff;
   --color-light-grey: #f3f3f3;
@@ -503,7 +508,7 @@ h6 {
   --nav-item-font-family: var(--font-family-title);
   --nav-item-font-weight: var(--font-weight-bold);
   --nav-item-font-size: var(--font-size-medium);
-  --nav-item-letter-spacing: 0.04em;
+  --nav-item-letter-spacing: 0.04rem;
   --nav-item-display: inline-block;
   --nav-item-margin: 0 0 3rem 0;
   --nav-item-link-hover: var(--color-primary);
