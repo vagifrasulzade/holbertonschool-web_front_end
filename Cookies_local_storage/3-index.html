@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3. Delete cookie and mini application</title>
+</head>
+
+<body onload="showWelcomeMessageOrForm()">
+
+<div id="loginForm">
+    <h2>Login to the website</h2>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="email" placeholder="Email">
+    <button onclick="setCookies()">Log me in</button>
+</div>
+
+<script>
+// ✅ Set cookies (10 gün)
+function setCookies() {
+    let firstname = document.getElementById('firstname').value;
+    let email = document.getElementById('email').value;
+
+    let date = new Date();
+    date.setDate(date.getDate() + 10);
+
+    document.cookie = `firstname=${firstname}; expires=${date.toUTCString()}; path=/`;
+    document.cookie = `email=${email}; expires=${date.toUTCString()}; path=/`;
+
+    showWelcomeMessageOrForm();
+}
+
+// ✅ Get cookie
+function getCookie(name) {
+    let value = `; ${document.cookie}`;
+    let parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return "";
+}
+
+// ✅ Show form
+function showForm() {
+    let welcome = document.getElementById("welcomeMessage");
+    if (welcome) welcome.remove();
+
+    document.getElementById("loginForm").style.display = "block";
+}
+
+// ✅ Hide form
+function hideForm() {
+    document.getElementById("loginForm").style.display = "none";
+}
+
+// ✅ Delete cookies + show form
+function deleteCookiesAndShowForm() {
+    document.cookie = "firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+
+    showForm();
+}
+
+// ✅ Main logic
+function showWelcomeMessageOrForm() {
+    let firstname = getCookie("firstname");
+
+    if (!firstname) {
+        showForm();
+    } else {
+        hideForm();
+
+        let h1 = document.createElement("h1");
+        h1.id = "welcomeMessage";
+
+        let logout = document.createElement("a");
+        logout.textContent = "(logout)";
+        logout.style.fontWeight = "normal";
+        logout.style.fontStyle = "italic";
+        logout.style.marginLeft = "10px";
+        logout.href = "#";
+        logout.onclick = function() {
+            deleteCookiesAndShowForm();
+            h1.remove();
+        };
+
+        h1.textContent = `Welcome ${firstname} `;
+        h1.appendChild(logout);
+
+        document.body.appendChild(h1);
+    }
+}
+</script>
+
+<div id="loginForm">
+    <h2>Login to the website</h2>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="email" placeholder="Email">
+    <button onclick="setCookies()">Log me in</button>
+</div>
+
+</body>
+</html>

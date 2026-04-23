@@ -1,0 +1,12 @@
+{
+  "name": "cookies-local-storage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Holberton School Cookies & localStorage exercises",
+  "scripts": {
+    "start": "echo \"No start script configured\""
+  },
+  "dependencies": {
+    "webpack": "^5.106.2"
+  }
+}

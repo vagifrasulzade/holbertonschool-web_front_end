@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>5. Local storage</title>
+</head>
+
+<body>
+
+<script>
+// ✅ Available items
+const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+// ❌ LocalStorage check
+if (!window.localStorage) {
+    alert("Sorry, your browser does not support Web storage. Try again with a better one");
+} else {
+    createStore();
+    displayCart();
+}
+
+// ==========================
+// Add item to cart
+// ==========================
+function addItemToCart(item) {
+    localStorage.setItem(item, "true");
+}
+
+// ==========================
+// Create store UI
+// ==========================
+function createStore() {
+    const ul = document.createElement("ul");
+
+    availableItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+
+        li.onclick = function () {
+            addItemToCart(item);
+        };
+
+        ul.appendChild(li);
+    });
+
+    document.body.appendChild(ul);
+}
+
+// ==========================
+// Display cart info
+// ==========================
+function displayCart() {
+    let count = localStorage.length;
+
+    if (count === 0) return;
+
+    const p = document.createElement("p");
+    p.textContent = `You previously had ${count} items in your cart`;
+
+    document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>

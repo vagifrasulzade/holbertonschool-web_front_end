@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2. Read cookie</title>
+</head>
+<script>
+function setCookies() {
+    let firstname = document.getElementById('firstname').value;
+    let email = document.getElementById('email').value;
+
+    let date = new Date();
+    date.setDate(date.getDate() + 10);
+
+    document.cookie = `firstname=${firstname}; expires=${date.toUTCString()}; path=/`;
+    document.cookie = `email=${email}; expires=${date.toUTCString()}; path=/`;
+}
+
+function getCookie(name) {
+    let value = `; ${document.cookie}`;
+    let parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return "";
+}
+
+function showCookies() {
+    let paragraph = document.createElement("p");
+    paragraph.innerHTML =
+        `Email: ${getCookie("email")} - Firstname: ${getCookie("firstname")}`;
+    document.body.appendChild(paragraph);
+}
+</script>
+<body>
+    <h1>Login to the Website</h1>
+
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="email" placeholder="Email">
+
+    <button onclick="setCookies()">Log me in</button>
+
+    <h1>Cookies</h1>
+
+    <button onclick="showCookies()">Show the cookies</button>
+
+</body>
+</html>

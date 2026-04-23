@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1. Create cookie with expiration date and specific path</title>
+</head>
+<script>
+
+function setCookies() {
+    let firstname = document.getElementById('firstname').value;
+    let email = document.getElementById('email').value;
+
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 10);
+
+    const expires = expirationDate.toUTCString();
+
+    document.cookie = `firstname=${firstname}; expires=${expires}; path=/`;
+    document.cookie = `email=${email}; expires=${expires}; path=/`;
+}
+
+function showCookies() {
+    let paragraph = document.createElement('p');
+    paragraph.innerHTML = `Cookies: ${document.cookie}`;
+    document.body.appendChild(paragraph);
+}
+</script>
+<body>
+    <h1>Login to the Website</h1>
+
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="email" placeholder="Email">
+
+    <button onclick="setCookies()">Log me in</button>
+
+    <h1>Cookies</h1>
+
+    <button onclick="showCookies()">Show the cookies</button>
+
+</body>
+</html>
